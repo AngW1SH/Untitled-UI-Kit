@@ -49,3 +49,14 @@ Icon.args = {
   fontSize: "md",
   variant: "primary",
 };
+
+export const Dot = (arg: Required<StyleProps>) => (
+  <Button {...arg} hasDot={true}>
+    Button CTA
+  </Button>
+);
+Dot.args = {
+  size: "md",
+  fontSize: "md",
+  variant: "primary",
+};

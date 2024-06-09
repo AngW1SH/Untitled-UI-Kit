@@ -25,3 +25,7 @@ export interface IconProps {
   iconStart?: ReactNode;
   iconEnd?: ReactNode;
 }
+
+export interface DotProps {
+  hasDot?: boolean;
+}

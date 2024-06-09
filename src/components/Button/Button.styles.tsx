@@ -2,6 +2,14 @@ import styled, { RuleSet, css } from "styled-components";
 import { Size, StyleProps, Variant } from "./Button.types";
 import { fontSizeStyles } from "@common/font";
 
+export const Dot = styled.div`
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+  margin-right: 1px;
+`;
+
 export const sizeStyles: { [key in Size]: RuleSet<object> } = {
   sm: css`
     padding: 8px 14px;
@@ -31,6 +39,10 @@ export const variantStyles: { [key in Variant]: RuleSet<object> } = {
     background-color: var(--color-brand-600);
     border-color: var(--color-brand-600);
 
+    & ${Dot} {
+      background-color: var(--color-white);
+    }
+
     &:hover:not(:active, :disabled) {
       background-color: var(--color-brand-700);
       border-color: var(--color-brand-700);
@@ -50,6 +62,10 @@ export const variantStyles: { [key in Variant]: RuleSet<object> } = {
     background-color: var(--color-brand-50);
     border-color: var(--color-brand-50);
 
+    & ${Dot} {
+      background-color: var(--color-success-500);
+    }
+
     &:hover:not(:active, :disabled) {
       background-color: var(--color-brand-100);
       border-color: var(--color-brand-100);
@@ -63,12 +79,20 @@ export const variantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-brand-300);
       background-color: var(--color-brand-25);
       border-color: var(--color-brand-25);
+
+      & ${Dot} {
+        background-color: var(--color-brand-300);
+      }
     }
   `,
   "secondary-gray": css`
     color: var(--color-gray-700);
     background-color: var(--color-white);
     border-color: var(--color-gray-300);
+
+    & ${Dot} {
+      background-color: var(--color-success-500);
+    }
 
     &:hover:not(:active, :disabled) {
       color: var(--color-gray-800);
@@ -84,12 +108,20 @@ export const variantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-gray-300);
       background-color: var(--color-white);
       border-color: var(--color-gray-200);
+
+      & ${Dot} {
+        background-color: var(--color-gray-300);
+      }
     }
   `,
   tertiary: css`
     color: var(--color-brand-700);
     background-color: transparent;
     border-color: transparent;
+
+    & ${Dot} {
+      background-color: var(--color-success-500);
+    }
 
     &:hover:not(:active, :disabled) {
       background-color: var(--color-brand-50);
@@ -100,12 +132,20 @@ export const variantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-gray-300);
       background-color: transparent;
       border-color: transparent;
+
+      & ${Dot} {
+        background-color: var(--color-gray-300);
+      }
     }
   `,
   "tertiary-gray": css`
     color: var(--color-gray-600);
     background-color: transparent;
     border-color: transparent;
+
+    & ${Dot} {
+      background-color: var(--color-success-500);
+    }
 
     &:hover:not(:active, :disabled) {
       color: var(--color-gray-700);
@@ -117,6 +157,10 @@ export const variantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-gray-300);
       background-color: transparent;
       border-color: transparent;
+
+      & ${Dot} {
+        background-color: var(--color-gray-300);
+      }
     }
   `,
 };
@@ -126,6 +170,10 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
     color: var(--color-white);
     background-color: var(--color-error-600);
     border-color: var(--color-error-600);
+
+    & ${Dot} {
+      background-color: var(--color-white);
+    }
 
     &:hover:not(:active, :disabled) {
       background-color: var(--color-error-700);
@@ -146,6 +194,10 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
     background-color: var(--color-error-50);
     border-color: var(--color-error-50);
 
+    & ${Dot} {
+      background-color: var(--color-success-500);
+    }
+
     &:hover:not(:active, :disabled) {
       background-color: var(--color-error-100);
       border-color: var(--color-error-100);
@@ -159,12 +211,20 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-error-300);
       background-color: var(--color-error-25);
       border-color: var(--color-error-25);
+
+      & ${Dot} {
+        background-color: var(--color-error-300);
+      }
     }
   `,
   "secondary-gray": css`
     color: var(--color-error-700);
     background-color: var(--color-white);
     border-color: var(--color-error-300);
+
+    & ${Dot} {
+      background-color: var(--color-success-500);
+    }
 
     &:hover:not(:active, :disabled) {
       color: var(--color-error-800);
@@ -180,12 +240,20 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-error-300);
       background-color: var(--color-white);
       border-color: var(--color-error-200);
+
+      & ${Dot} {
+        background-color: var(--color-error-300);
+      }
     }
   `,
   tertiary: css`
     color: var(--color-error-700);
     background-color: transparent;
     border-color: transparent;
+
+    & ${Dot} {
+      background-color: var(--color-success-500);
+    }
 
     &:hover:not(:active, :disabled) {
       background-color: var(--color-error-50);
@@ -196,6 +264,10 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-error-700);
       background-color: transparent;
       border-color: transparent;
+
+      & ${Dot} {
+        background-color: var(--color-error-700);
+      }
     }
   `,
   "tertiary-gray": css`
@@ -213,6 +285,10 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
       color: var(--color-error-300);
       background-color: transparent;
       border-color: transparent;
+
+      & ${Dot} {
+        background-color: var(--color-error-300);
+      }
     }
   `,
 };

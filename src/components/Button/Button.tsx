@@ -1,10 +1,11 @@
 import { ButtonHTMLAttributes, FC } from "react";
-import { IconProps, StyleProps } from "./Button.types";
-import { ButtonStyled } from "./Button.styles";
+import { DotProps, IconProps, StyleProps } from "./Button.types";
+import { ButtonStyled, Dot } from "./Button.styles";
 import IconWrapper from "./IconWrapper";
 
 export type ButtonProps = StyleProps &
   IconProps &
+  DotProps &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ export const Button: FC<ButtonProps> = ({
   variant = "primary",
   danger = false,
   isSquare = false,
+  hasDot = false,
   iconStart,
   iconEnd,
   ...props
@@ -27,6 +29,7 @@ export const Button: FC<ButtonProps> = ({
       isSquare={isSquare}
       {...props}
     >
+      {hasDot && <Dot />}
       {iconStart && <IconWrapper size={size}>{iconStart}</IconWrapper>}
       {children}
       {iconEnd && <IconWrapper size={size}>{iconEnd}</IconWrapper>}
