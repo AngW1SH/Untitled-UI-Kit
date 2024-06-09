@@ -46,7 +46,6 @@ export const Icon = (arg: Required<StyleProps>) => (
 );
 Icon.args = {
   size: "md",
-  fontSize: "md",
   variant: "primary",
 };
 
@@ -57,6 +56,5 @@ export const Dot = (arg: Required<StyleProps>) => (
 );
 Dot.args = {
   size: "md",
-  fontSize: "md",
   variant: "primary",
 };

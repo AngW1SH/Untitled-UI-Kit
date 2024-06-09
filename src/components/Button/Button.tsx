@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 import { DotProps, IconProps, StyleProps } from "./Button.types";
 import { ButtonStyled, Dot } from "./Button.styles";
 import IconWrapper from "./IconWrapper";
+import { sizeToFontSize } from "./Button.utils";
 
 export type ButtonProps = StyleProps &
   IconProps &
@@ -11,19 +12,19 @@ export type ButtonProps = StyleProps &
 export const Button: FC<ButtonProps> = ({
   children,
   size = "md",
-  fontSize = "md",
   variant = "primary",
   danger = false,
   isSquare = false,
   hasDot = false,
   iconStart,
   iconEnd,
+  fontSize,
   ...props
 }) => {
   return (
     <ButtonStyled
       size={size}
-      fontSize={fontSize}
+      fontSize={fontSize ? fontSize : sizeToFontSize(size)}
       variant={variant}
       danger={danger}
       isSquare={isSquare}
