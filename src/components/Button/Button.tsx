@@ -1,8 +1,11 @@
 import { ButtonHTMLAttributes, FC } from "react";
-import { StyleProps } from "./Button.types";
+import { IconProps, StyleProps } from "./Button.types";
 import { ButtonStyled } from "./Button.styles";
+import IconWrapper from "./IconWrapper";
 
-export type ButtonProps = StyleProps & ButtonHTMLAttributes<HTMLButtonElement>;
+export type ButtonProps = StyleProps &
+  IconProps &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<ButtonProps> = ({
   children,
@@ -10,6 +13,8 @@ export const Button: FC<ButtonProps> = ({
   fontSize = "md",
   variant = "primary",
   danger = false,
+  iconStart,
+  iconEnd,
   ...props
 }) => {
   return (
@@ -20,7 +25,9 @@ export const Button: FC<ButtonProps> = ({
       danger={danger}
       {...props}
     >
+      {iconStart && <IconWrapper size={size}>{iconStart}</IconWrapper>}
       {children}
+      {iconEnd && <IconWrapper size={size}>{iconEnd}</IconWrapper>}
     </ButtonStyled>
   );
 };

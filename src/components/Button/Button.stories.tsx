@@ -1,3 +1,4 @@
+import { Gear } from "@common/Icon";
 import { Button } from "./Button";
 import { StyleProps } from "./Button.types";
 
@@ -29,7 +30,9 @@ export default {
 };
 
 export const Default = (arg: Required<StyleProps>) => (
-  <Button {...arg}>Button CTA</Button>
+  <Button {...arg} iconStart={<Gear />}>
+    Button CTA
+  </Button>
 );
 Default.args = {
   size: "md",

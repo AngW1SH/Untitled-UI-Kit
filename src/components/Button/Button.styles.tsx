@@ -5,18 +5,23 @@ import { fontSizeStyles } from "@common/font";
 export const sizeStyles: { [key in Size]: RuleSet<object> } = {
   sm: css`
     padding: 8px 14px;
+    gap: 8px;
   `,
   md: css`
     padding: 10px 16px;
+    gap: 8px;
   `,
   lg: css`
     padding: 11px 18px;
+    gap: 8px;
   `,
   xl: css`
     padding: 12px 20px;
+    gap: 8px;
   `,
   "2xl": css`
     padding: 13px 28px;
+    gap: 12px;
   `,
 };
 

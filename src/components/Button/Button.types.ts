@@ -1,4 +1,5 @@
 import { FontSize } from "@common/font";
+import { ReactNode } from "react";
 
 export type Size = "sm" | "md" | "lg" | "xl" | "2xl";
 export type SizeProps = { size?: Size };
@@ -17,4 +18,9 @@ export interface StyleProps {
   fontSize?: FontSize;
   size?: Size;
   danger?: boolean;
+}
+
+export interface IconProps {
+  iconStart?: ReactNode;
+  iconEnd?: ReactNode;
 }
