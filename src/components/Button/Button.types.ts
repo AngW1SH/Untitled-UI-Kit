@@ -18,6 +18,7 @@ export interface StyleProps {
   fontSize?: FontSize;
   size?: Size;
   danger?: boolean;
+  isSquare?: boolean;
 }
 
 export interface IconProps {

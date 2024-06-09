@@ -217,6 +217,24 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
   `,
 };
 
+export const squareStyles: { [key in Size]: RuleSet<object> } = {
+  sm: css`
+    padding: 8px;
+  `,
+  md: css`
+    padding: 10px;
+  `,
+  lg: css`
+    padding: 12px;
+  `,
+  xl: css`
+    padding: 14px;
+  `,
+  "2xl": css`
+    padding: 16px;
+  `,
+};
+
 export const ButtonBase = styled.button`
   display: inline-flex;
   justify-content: center;
@@ -241,4 +259,5 @@ export const ButtonStyled = styled(ButtonBase)<Required<StyleProps>>`
     props.danger
       ? dangerVariantStyles[props.variant]
       : variantStyles[props.variant]};
+  ${(props) => props.isSquare && squareStyles[props.size]};
 `;

@@ -1,6 +1,7 @@
 import { Gear } from "@common/Icon";
 import { Button } from "./Button";
 import { StyleProps } from "./Button.types";
+import IconButton from "./IconButton";
 
 export default {
   title: "Button",
@@ -35,6 +36,15 @@ export const Default = (arg: Required<StyleProps>) => (
   </Button>
 );
 Default.args = {
+  size: "md",
+  fontSize: "md",
+  variant: "primary",
+};
+
+export const Icon = (arg: Required<StyleProps>) => (
+  <IconButton {...arg} icon={<Gear />} />
+);
+Icon.args = {
   size: "md",
   fontSize: "md",
   variant: "primary",

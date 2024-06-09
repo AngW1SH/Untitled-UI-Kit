@@ -13,6 +13,7 @@ export const Button: FC<ButtonProps> = ({
   fontSize = "md",
   variant = "primary",
   danger = false,
+  isSquare = false,
   iconStart,
   iconEnd,
   ...props
@@ -23,6 +24,7 @@ export const Button: FC<ButtonProps> = ({
       fontSize={fontSize}
       variant={variant}
       danger={danger}
+      isSquare={isSquare}
       {...props}
     >
       {iconStart && <IconWrapper size={size}>{iconStart}</IconWrapper>}
