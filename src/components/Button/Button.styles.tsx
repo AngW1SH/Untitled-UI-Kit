@@ -318,7 +318,7 @@ export const ButtonBase = styled.button`
   border-radius: 8px;
   font-weight: 600;
   border-width: 1px;
-  border: none;
+  border-style: solid;
   cursor: pointer;
   outline: none;
 
