@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { SocialGroupProps } from "./SocialGroup.types";
-import { Social } from "./Social";
+import { Social } from "../Social";
 import { SocialGroupStyled } from "./SocialGroup.styles";
 
 const SocialGroup: FC<SocialGroupProps> = ({

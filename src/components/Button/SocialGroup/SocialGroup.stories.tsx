@@ -1,4 +1,4 @@
-import { Social } from "./Social";
+import { Social } from "../Social";
 import SocialGroup from "./SocialGroup";
 import { SocialGroupProps } from "./SocialGroup.types";
 

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Company, SocialProps } from "./Social.types";
 import { SocialButtonStyled } from "./Social.styles";
-import IconWrapper from "./IconWrapper";
+import { IconWrapper } from "../IconWrapper";
 import {
   Apple,
   Dribbble,

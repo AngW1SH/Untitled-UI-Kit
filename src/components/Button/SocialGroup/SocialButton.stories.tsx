@@ -1,5 +1,5 @@
-import { Social } from "./Social";
-import { SocialProps } from "./Social.types";
+import { Social } from "../Social";
+import type { SocialProps } from "../Social";
 
 export default {
   title: "Social Button",

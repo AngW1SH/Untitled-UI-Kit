@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Size } from "./Button.types";
+import type { Size } from "../Base";
 import styled, { RuleSet, css } from "styled-components";
 
 const sizeStyles: { [key in Size]: RuleSet<object> } = {

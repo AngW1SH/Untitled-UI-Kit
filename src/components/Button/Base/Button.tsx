@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FC } from "react";
 import { DotProps, IconProps, StyleProps } from "./Button.types";
 import { ButtonStyled, Dot } from "./Button.styles";
-import IconWrapper from "./IconWrapper";
+import { IconWrapper } from "../IconWrapper";
 import { sizeToFontSize } from "./Button.utils";
 
 export type ButtonProps = StyleProps &

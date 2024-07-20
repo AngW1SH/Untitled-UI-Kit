@@ -1,7 +1,7 @@
 import { Gear } from "@common/Icon";
 import { Button } from "./Button";
 import { StyleProps } from "./Button.types";
-import IconButton from "./IconButton";
+import IconButton from "../Icon/IconButton";
 
 export default {
   title: "Button",

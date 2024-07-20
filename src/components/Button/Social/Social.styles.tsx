@@ -1,5 +1,5 @@
 import styled, { RuleSet, css } from "styled-components";
-import { ButtonStyled } from "./Button.styles";
+import { ButtonStyled } from "../Base";
 import { Company, SocialProps } from "./Social.types";
 
 export const brandVariantStyles: { [key in Company]: RuleSet<object> } = {
