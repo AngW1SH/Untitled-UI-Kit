@@ -24,9 +24,12 @@ const disabledStyles = css`
 interface InnerContainerProps {
   error?: boolean;
   disabled?: boolean;
+  hasOuterLeft?: boolean;
+  hasOuterRight?: boolean;
 }
 
 export const InnerContainer = styled.div<InnerContainerProps>`
+  position: relative;
   width: 100%;
   display: flex;
   padding: 10px 14px;
@@ -41,6 +44,20 @@ export const InnerContainer = styled.div<InnerContainerProps>`
   ${({ error }) => error && errorStyles}
 
   ${({ disabled }) => disabled && disabledStyles}
+
+  ${({ hasOuterLeft }) =>
+    hasOuterLeft &&
+    css`
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    `}
+
+  ${({ hasOuterRight }) =>
+    hasOuterRight &&
+    css`
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    `}
 `;
 
 export const Label = styled.label`
@@ -50,6 +67,57 @@ export const Label = styled.label`
 
 export const OuterContainer = styled.div`
   display: flex;
+`;
+
+interface OuterElementProps {
+  side: "left" | "right";
+}
+export const OuterElement = styled.div<OuterElementProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-gray-300);
+
+  ${({ side }) => {
+    if (side === "left") {
+      return css`
+        padding-left: 14px;
+        padding-right: 12px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-right: none;
+      `;
+    }
+
+    return css`
+      padding-left: 12px;
+      padding-right: 14px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-left: none;
+    `;
+  }}
+`;
+
+interface InnerElementProps {
+  side: "left" | "right";
+}
+export const InnerElement = styled.div<InnerElementProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${({ side }) => {
+    if (side === "left") {
+      return css`
+        padding-right: 8px;
+      `;
+    }
+
+    return css`
+      padding-left: 8px;
+    `;
+  }}
 `;
 
 export const BaseInput = styled.input`

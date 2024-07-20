@@ -14,6 +14,8 @@ import {
   ErrorMessage,
   Hint,
   ErrorContainer,
+  OuterElement,
+  InnerElement,
 } from "./Base.styles";
 import { Error } from "@common/Icon";
 
@@ -40,18 +42,25 @@ const Base: FC<BaseProps> = ({
     <BaseStyled>
       <Label htmlFor={id}>{label}</Label>
       <OuterContainer>
-        <div>{outerLeft}</div>
-        <InnerContainer error={error} disabled={disabled}>
-          <div>{innerLeft}</div>
+        {!!outerLeft && <OuterElement side="left">{outerLeft}</OuterElement>}
+        <InnerContainer
+          error={error}
+          disabled={disabled}
+          hasOuterLeft={!!outerLeft}
+          hasOuterRight={!!outerRight}
+        >
+          {!!innerLeft && <InnerElement side="left">{innerLeft}</InnerElement>}
           <BaseInput placeholder={placeholder} disabled={disabled} id={id} />
           {error && (
             <ErrorContainer>
               <Error />
             </ErrorContainer>
           )}
-          <div>{innerRight}</div>
+          {!!innerRight && (
+            <InnerElement side="right">{innerRight}</InnerElement>
+          )}
         </InnerContainer>
-        <div>{outerRight}</div>
+        {!!outerRight && <OuterElement side="right">{outerRight}</OuterElement>}
       </OuterContainer>
       {hint && !errorMessage && <Hint>{hint}</Hint>}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}

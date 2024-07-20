@@ -46,3 +46,14 @@ export const Disabled = (arg: BaseProps) => (
     disabled={true}
   />
 );
+
+export const Additional = (arg: BaseProps) => (
+  <Base
+    {...arg}
+    placeholder="1,000.00"
+    label="Email"
+    innerLeft={<span>$</span>}
+    innerRight={<div>USD</div>}
+    outerLeft={<div>http://</div>}
+  />
+);
