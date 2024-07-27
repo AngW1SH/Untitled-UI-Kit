@@ -30,6 +30,7 @@ const Base: FC<BaseProps> = ({
   errorMessage,
   disabled,
   hint,
+  type = "text",
   error,
   outerLeft,
   outerRight,
@@ -50,7 +51,12 @@ const Base: FC<BaseProps> = ({
           hasOuterRight={!!outerRight}
         >
           {!!innerLeft && <InnerElement side="left">{innerLeft}</InnerElement>}
-          <BaseInput placeholder={placeholder} disabled={disabled} id={id} />
+          <BaseInput
+            placeholder={placeholder}
+            disabled={disabled}
+            id={id}
+            type={type}
+          />
           {error && (
             <ErrorContainer>
               <Error />

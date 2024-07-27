@@ -7,5 +7,17 @@ import X from "./X";
 import Figma from "./Figma";
 import Dribbble from "./Dribbble";
 import Error from "./Error";
+import Email from "./Email";
 
-export { Gear, Google, Facebook, Apple, Twitter, X, Figma, Dribbble, Error };
+export {
+  Gear,
+  Google,
+  Facebook,
+  Apple,
+  Twitter,
+  X,
+  Figma,
+  Dribbble,
+  Error,
+  Email,
+};

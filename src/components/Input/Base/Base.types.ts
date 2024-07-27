@@ -25,3 +25,5 @@ export interface TooltipProps {
   error?: boolean;
   errorMessage?: string;
 }
+
+export type CommonProps = InputProps & LabelProps & TooltipProps;
