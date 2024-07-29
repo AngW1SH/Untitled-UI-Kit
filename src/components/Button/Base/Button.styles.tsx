@@ -10,7 +10,7 @@ export const Dot = styled.div`
   margin-right: 1px;
 `;
 
-export const sizeStyles: { [key in Size]: RuleSet<object> } = {
+const sizeStyles: { [key in Size]: RuleSet<object> } = {
   sm: css`
     padding: 8px 14px;
     gap: 8px;
@@ -33,7 +33,7 @@ export const sizeStyles: { [key in Size]: RuleSet<object> } = {
   `,
 };
 
-export const variantStyles: { [key in Variant]: RuleSet<object> } = {
+const variantStyles: { [key in Variant]: RuleSet<object> } = {
   primary: css`
     color: var(--color-white);
     background-color: var(--color-brand-600);
@@ -165,7 +165,7 @@ export const variantStyles: { [key in Variant]: RuleSet<object> } = {
   `,
 };
 
-export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
+const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
   primary: css`
     color: var(--color-white);
     background-color: var(--color-error-600);
@@ -293,7 +293,7 @@ export const dangerVariantStyles: { [key in Variant]: RuleSet<object> } = {
   `,
 };
 
-export const squareStyles: { [key in Size]: RuleSet<object> } = {
+const squareStyles: { [key in Size]: RuleSet<object> } = {
   sm: css`
     padding: 8px;
   `,

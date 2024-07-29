@@ -2,7 +2,7 @@ import styled, { RuleSet, css } from "styled-components";
 import { ButtonStyled } from "../Base";
 import { Company, SocialProps } from "./Social.types";
 
-export const brandVariantStyles: { [key in Company]: RuleSet<object> } = {
+const brandVariantStyles: { [key in Company]: RuleSet<object> } = {
   google: css`
     color: var(--color-gray-700);
     background-color: var(--color-white);
@@ -57,7 +57,7 @@ export const brandVariantStyles: { [key in Company]: RuleSet<object> } = {
   `,
 };
 
-export const colorVariantStyles: RuleSet<object> = css`
+const colorVariantStyles: RuleSet<object> = css`
   color: var(--color-gray-700);
   background-color: var(--color-white);
   border-color: var(--color-gray-300);
@@ -68,7 +68,7 @@ export const colorVariantStyles: RuleSet<object> = css`
   }
 `;
 
-export const grayVariantStyles: RuleSet<object> = css`
+const grayVariantStyles: RuleSet<object> = css`
   color: var(--color-gray-700);
   background-color: var(--color-white);
   border-color: var(--color-gray-300);

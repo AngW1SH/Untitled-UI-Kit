@@ -12,7 +12,7 @@ import {
   X,
 } from "@common/Icon";
 
-export const message = (company: Company): string => {
+const message = (company: Company): string => {
   switch (company) {
     case "google":
       return "Sign in with Google";
