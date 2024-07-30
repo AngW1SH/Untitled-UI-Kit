@@ -8,6 +8,8 @@ import Figma from "./Figma";
 import Dribbble from "./Dribbble";
 import Error from "./Error";
 import Email from "./Email";
+import ChevronDown from "./ChevronDown";
+import Check from "./Check";
 
 export {
   Gear,
@@ -20,4 +22,6 @@ export {
   Dribbble,
   Error,
   Email,
+  ChevronDown,
+  Check,
 };

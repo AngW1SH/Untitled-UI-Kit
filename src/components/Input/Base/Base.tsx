@@ -25,7 +25,10 @@ export type BaseProps = InputProps &
   TooltipProps;
 
 const Base: FC<BaseProps> = ({
+  value,
+  onChange,
   label,
+  readOnly,
   placeholder,
   errorMessage,
   disabled,
@@ -47,12 +50,15 @@ const Base: FC<BaseProps> = ({
         <InnerContainer
           error={error}
           disabled={disabled}
-          hasOuterLeft={!!outerLeft}
-          hasOuterRight={!!outerRight}
+          $hasOuterLeft={!!outerLeft}
+          $hasOuterRight={!!outerRight}
         >
           {!!innerLeft && <InnerElement side="left">{innerLeft}</InnerElement>}
           <BaseInput
             placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            readOnly={readOnly}
             disabled={disabled}
             id={id}
             type={type}

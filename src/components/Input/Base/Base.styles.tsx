@@ -24,14 +24,15 @@ const disabledStyles = css`
 interface InnerContainerProps {
   error?: boolean;
   disabled?: boolean;
-  hasOuterLeft?: boolean;
-  hasOuterRight?: boolean;
+  $hasOuterLeft?: boolean;
+  $hasOuterRight?: boolean;
 }
 
 export const InnerContainer = styled.div<InnerContainerProps>`
   position: relative;
-  width: 100%;
   display: flex;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 10px 14px;
   border: 1px solid var(--color-gray-300);
   background-color: var(--color-white);
@@ -45,15 +46,15 @@ export const InnerContainer = styled.div<InnerContainerProps>`
 
   ${({ disabled }) => disabled && disabledStyles}
 
-  ${({ hasOuterLeft }) =>
-    hasOuterLeft &&
+  ${({ $hasOuterLeft }) =>
+    $hasOuterLeft &&
     css`
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     `}
 
-  ${({ hasOuterRight }) =>
-    hasOuterRight &&
+  ${({ $hasOuterRight }) =>
+    $hasOuterRight &&
     css`
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
@@ -104,6 +105,7 @@ interface InnerElementProps {
 }
 export const InnerElement = styled.div<InnerElementProps>`
   display: flex;
+  max-width: 70%;
   align-items: center;
   justify-content: center;
 
