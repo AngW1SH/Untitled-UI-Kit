@@ -1,23 +1,24 @@
 import { Check } from "@common/Icon";
 import { FC, ReactElement } from "react";
-import { BaseItem, BaseItemCheck } from "./Base.styles";
+import { Item as ItemStyled, ItemCheck } from "./Base.styles";
 
 interface ItemProps {
+  highlighted?: boolean;
   selected?: boolean;
   children: ReactElement | string;
   onClick?: () => void;
 }
 
-const Item: FC<ItemProps> = ({ selected, children, onClick }) => {
+const Item: FC<ItemProps> = ({ children, onClick, highlighted, selected }) => {
   return (
-    <BaseItem selected={selected} onClick={onClick}>
+    <ItemStyled $highlighted={highlighted || selected} onClick={onClick}>
       {children}
       {selected && (
-        <BaseItemCheck>
+        <ItemCheck>
           <Check />
-        </BaseItemCheck>
+        </ItemCheck>
       )}
-    </BaseItem>
+    </ItemStyled>
   );
 };
 

@@ -31,7 +31,7 @@ interface InnerContainerProps {
 export const InnerContainer = styled.div<InnerContainerProps>`
   position: relative;
   display: flex;
-  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
   padding: 10px 14px;
   border: 1px solid var(--color-gray-300);
@@ -105,6 +105,7 @@ interface InnerElementProps {
 }
 export const InnerElement = styled.div<InnerElementProps>`
   display: flex;
+  width: max-content;
   max-width: 70%;
   align-items: center;
   justify-content: center;

@@ -1,12 +1,12 @@
 import { ReactElement, useState } from "react";
-import Base from ".";
+import Base from "./Single";
 
 export default {
   title: "Dropdown",
 };
 
 export const Default = () => {
-  const [selected, setSelected] = useState<ReactElement | string>("Option 1");
+  const [selected, setSelected] = useState<ReactElement | string | null>(null);
 
   return (
     <Base

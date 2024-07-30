@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BaseMenu = styled.ul`
+export const Menu = styled.ul`
   box-shadow:
     0 4px 6px -2px rgba(16, 24, 40, 0.03),
     0 12px 16px -4px rgba(16, 24, 40, 0.08);
@@ -25,9 +25,9 @@ export const Arrow = styled.div<ArrowProps>`
 `;
 
 interface BaseItemProps {
-  selected?: boolean;
+  $highlighted?: boolean;
 }
-export const BaseItem = styled.li<BaseItemProps>`
+export const Item = styled.li<BaseItemProps>`
   position: relative;
   padding: 10px 40px 10px 14px;
   background-color: var(--color-white);
@@ -37,11 +37,11 @@ export const BaseItem = styled.li<BaseItemProps>`
     background-color: var(--color-gray-50);
   }
 
-  ${({ selected }) =>
-    selected ? "background-color: var(--color-gray-50);" : ""}
+  ${({ $highlighted }) =>
+    $highlighted ? "background-color: var(--color-gray-50);" : ""}
 `;
 
-export const BaseItemCheck = styled.div`
+export const ItemCheck = styled.div`
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
