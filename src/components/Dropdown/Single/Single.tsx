@@ -1,8 +1,10 @@
 import { ToggleOpen } from "@common/ToggleOpen";
-import { FC, KeyboardEvent, ReactElement, useRef, useState } from "react";
+import { FC, ReactElement, useRef } from "react";
 import { Input } from "@components/Input";
-import { useOpen, useControls, Arrow, Menu, Item } from "../Base";
+import { Arrow } from "../Base";
 import { Selected } from "../Base/Base.styles";
+import { useDropdown } from "./useDropdown";
+import Menu from "../Base/Menu";
 
 interface BaseProps {
   options: (ReactElement | string)[];
@@ -13,41 +15,14 @@ interface BaseProps {
 const Base: FC<BaseProps> = ({ value, options }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [open, setOpen] = useOpen(ref);
-  const [selected, setSelected] = useState(value || null);
-
-  const [highlighted, controls] = useControls(options, (option) => {
-    setSelected(option);
-  });
-
-  const handleClick = (option: ReactElement | string) => {
-    setSelected(option);
-    setOpen(false);
-    controls.reset();
-  };
-
-  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (!open) {
-      switch (e.key) {
-        case "Enter":
-          setOpen(true);
-          break;
-      }
-    } else {
-      switch (e.key) {
-        case "ArrowUp":
-          controls.moveUp();
-          break;
-        case "ArrowDown":
-          controls.moveDown();
-          break;
-        case "Enter":
-          controls.select();
-          setOpen(false);
-          break;
-      }
-    }
-  };
+  const {
+    open,
+    setOpen,
+    selected,
+    highlighted,
+    handleClickItem,
+    handleKeyDown,
+  } = useDropdown(ref, options, value);
 
   return (
     <div ref={ref} onKeyDown={handleKeyDown}>
@@ -63,18 +38,12 @@ const Base: FC<BaseProps> = ({ value, options }) => {
           />
         }
       >
-        <Menu>
-          {options.map((option) => (
-            <Item
-              highlighted={option === highlighted}
-              selected={option === selected}
-              key={option.toString()}
-              onClick={() => handleClick(option)}
-            >
-              {option}
-            </Item>
-          ))}
-        </Menu>
+        <Menu
+          options={options}
+          highlighted={highlighted}
+          selected={selected}
+          onClick={handleClickItem}
+        />
       </ToggleOpen>
     </div>
   );
