@@ -7,6 +7,7 @@ interface ToggleOpenProps {
   onChange: (open: boolean) => void;
   trigger: ReactElement;
   children: ReactElement | string;
+  className?: string;
 }
 
 const ToggleOpen: FC<ToggleOpenProps> = ({
@@ -14,6 +15,7 @@ const ToggleOpen: FC<ToggleOpenProps> = ({
   onChange,
   trigger,
   children,
+  className,
 }) => {
   const triggerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -21,7 +23,7 @@ const ToggleOpen: FC<ToggleOpenProps> = ({
   const position = usePosition(triggerRef, contentRef);
 
   return (
-    <Container>
+    <Container className={className}>
       <Trigger ref={triggerRef} onClick={() => onChange(!open)}>
         {trigger}
       </Trigger>
