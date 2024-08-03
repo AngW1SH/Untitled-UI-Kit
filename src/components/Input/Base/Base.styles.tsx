@@ -33,7 +33,6 @@ export const InnerContainer = styled.div<InnerContainerProps>`
   display: flex;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 14px;
   border: 1px solid var(--color-gray-300);
   background-color: var(--color-white);
   border-radius: 8px;
@@ -128,6 +127,8 @@ export const BaseInput = styled.input`
   color: var(--color-gray-900);
   border: none;
   outline: none;
+  padding: 10px 14px;
+  background: transparent;
   width: 100%;
 
   &::placeholder {

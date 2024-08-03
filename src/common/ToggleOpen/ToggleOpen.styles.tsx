@@ -2,6 +2,9 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 `;
 
 export const Trigger = styled.div``;
