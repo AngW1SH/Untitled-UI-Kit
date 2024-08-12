@@ -16,10 +16,22 @@ interface ContentBoxProps {
 
 export const ContentBox = styled.div<ContentBoxProps>`
   position: absolute;
-  transition: opacity 0.3s;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
   width: max-content;
 
-  ${({ open }) => (open ? "opacity: 1;" : "opacity: 0;")}
+  ${({ open }) =>
+    open
+      ? css`
+          opacity: 1;
+          visibility: visible;
+        `
+      : css`
+          opacity: 0;
+          visibility: hidden;
+        `}
+
   ${({ position }) => {
     if (position == "top")
       return css`
