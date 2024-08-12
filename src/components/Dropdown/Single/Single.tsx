@@ -1,16 +1,9 @@
 import { ToggleOpen } from "@common/ToggleOpen";
-import { FC, ReactElement, useId, useRef } from "react";
+import { FC, useId, useRef } from "react";
 import { useDropdown } from "./useDropdown";
 import Menu from "../Base/Menu";
 import Trigger from "./Trigger";
-
-interface BaseProps {
-  options: (ReactElement | string)[];
-  value?: ReactElement | string | null;
-  onChange?: (value: ReactElement | string) => void;
-  type?: "input" | "block";
-  className?: string;
-}
+import { BaseProps } from "../Base/Base.types";
 
 const Base: FC<BaseProps> = ({ value, options, type = "input", className }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -35,8 +28,8 @@ const Base: FC<BaseProps> = ({ value, options, type = "input", className }) => {
           <Trigger
             type={type}
             selected={selected}
-            open={open}
             menuId={menuId}
+            open={open}
           />
         }
       >
