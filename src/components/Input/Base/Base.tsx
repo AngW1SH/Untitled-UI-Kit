@@ -28,6 +28,7 @@ const Base: FC<BaseProps> = ({
   value,
   onChange,
   label,
+  role,
   readOnly,
   placeholder,
   errorMessage,
@@ -62,6 +63,7 @@ const Base: FC<BaseProps> = ({
             disabled={disabled}
             id={id}
             type={type}
+            role={role}
           />
           {error && (
             <ErrorContainer>

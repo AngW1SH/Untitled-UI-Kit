@@ -23,6 +23,7 @@ export const useDropdown = (
     if (!open) {
       switch (e.key) {
         case "Enter":
+        case " ":
           setOpen(true);
           break;
       }
@@ -35,7 +36,11 @@ export const useDropdown = (
           controls.moveDown();
           break;
         case "Enter":
+        case " ":
           controls.select();
+          setOpen(false);
+          break;
+        case "Escape":
           setOpen(false);
           break;
       }

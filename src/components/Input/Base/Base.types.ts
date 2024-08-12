@@ -14,6 +14,7 @@ export interface InputProps {
   disabled?: boolean;
   readOnly?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  role?: string;
 }
 
 export interface LabelProps {

@@ -8,9 +8,10 @@ interface TriggerProps {
   type: "input" | "block";
   selected: ReactElement | string | null;
   open?: boolean;
+  menuId?: string;
 }
 
-const Trigger: FC<TriggerProps> = ({ type, selected, open }) => {
+const Trigger: FC<TriggerProps> = ({ type, selected, open, menuId }) => {
   switch (type) {
     case "input":
       return (
@@ -19,11 +20,19 @@ const Trigger: FC<TriggerProps> = ({ type, selected, open }) => {
           placeholder={selected ? "" : "Select an option"}
           innerLeft={<Selected>{selected}</Selected>}
           innerRight={<Arrow open={open} />}
+          role="combobox"
+          aria-expanded={open}
+          aria-controls={menuId}
         />
       );
     case "block":
       return (
-        <Block>
+        <Block
+          tabIndex={0}
+          role="combobox"
+          aria-expanded={open}
+          aria-controls={menuId}
+        >
           <div>{selected}</div>
           <Arrow open={open} />
         </Block>

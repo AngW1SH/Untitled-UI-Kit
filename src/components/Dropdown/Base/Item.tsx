@@ -11,7 +11,11 @@ interface ItemProps {
 
 const Item: FC<ItemProps> = ({ children, onClick, highlighted, selected }) => {
   return (
-    <ItemStyled $highlighted={highlighted || selected} onClick={onClick}>
+    <ItemStyled
+      $highlighted={highlighted || selected}
+      onClick={onClick}
+      role="option"
+    >
       {children}
       {selected && (
         <ItemCheck>
