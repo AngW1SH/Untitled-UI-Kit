@@ -1,4 +1,4 @@
-import { ToggleOpen } from "@common/ToggleOpen";
+import { ToggleVisibility } from "@common/ToggleVisibility";
 import {
   FC,
   KeyboardEvent,
@@ -68,7 +68,7 @@ const Multiselect: FC<MultiselectProps> = ({ value, options, onChange }) => {
 
   return (
     <div ref={ref} onKeyDown={handleKeyDown}>
-      <ToggleOpen
+      <ToggleVisibility
         open={open}
         onChange={setOpen}
         trigger={
@@ -91,7 +91,7 @@ const Multiselect: FC<MultiselectProps> = ({ value, options, onChange }) => {
             </Item>
           ))}
         </Menu>
-      </ToggleOpen>
+      </ToggleVisibility>
     </div>
   );
 };

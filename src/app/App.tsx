@@ -1,4 +1,4 @@
-import { ToggleOpen } from "../common/ToggleOpen";
+import { ToggleVisibility } from "../common/ToggleVisibility";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         paddingTop: "70vh",
       }}
     >
-      <ToggleOpen trigger={<p>Open</p>}>
+      <ToggleVisibility trigger={<p>Open</p>}>
         <div>
           <p>123</p>
           <br />
@@ -33,7 +33,7 @@ function App() {
           <p>123</p>
           <p>123</p>
         </div>
-      </ToggleOpen>
+      </ToggleVisibility>
     </div>
   );
 }

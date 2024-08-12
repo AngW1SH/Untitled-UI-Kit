@@ -1,4 +1,4 @@
-import { ToggleOpen } from "@common/ToggleOpen";
+import { ToggleVisibility } from "@common/ToggleVisibility";
 import { FC, useId, useRef } from "react";
 import { useDropdown } from "./useDropdown";
 import Menu from "../Base/Menu";
@@ -21,7 +21,7 @@ const Base: FC<BaseProps> = ({ value, options, type = "input", className }) => {
 
   return (
     <div ref={ref} onKeyDown={handleKeyDown} className={className}>
-      <ToggleOpen
+      <ToggleVisibility
         open={open}
         onChange={setOpen}
         trigger={
@@ -40,7 +40,7 @@ const Base: FC<BaseProps> = ({ value, options, type = "input", className }) => {
           selected={selected}
           onClick={handleClickItem}
         />
-      </ToggleOpen>
+      </ToggleVisibility>
     </div>
   );
 };

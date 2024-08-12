@@ -1,8 +1,13 @@
 import { FC, ReactElement, useRef } from "react";
-import { Container, Content, ContentBox, Trigger } from "./ToggleOpen.styles";
+import {
+  Container,
+  Content,
+  ContentBox,
+  Trigger,
+} from "./ToggleVisibility.styles";
 import { usePosition } from "./usePosition";
 
-interface ToggleOpenProps {
+interface ToggleVisibilityProps {
   open: boolean;
   onChange: (open: boolean) => void;
   trigger: ReactElement;
@@ -10,7 +15,7 @@ interface ToggleOpenProps {
   className?: string;
 }
 
-const ToggleOpen: FC<ToggleOpenProps> = ({
+const ToggleVisibility: FC<ToggleVisibilityProps> = ({
   open,
   onChange,
   trigger,
@@ -34,4 +39,4 @@ const ToggleOpen: FC<ToggleOpenProps> = ({
   );
 };
 
-export default ToggleOpen;
+export default ToggleVisibility;
