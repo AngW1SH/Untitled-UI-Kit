@@ -41,8 +41,15 @@ export const useControls = (
 
     reset: () => setHighlighted(null),
 
-    select: () => {
-      if (onConfirm && highlighted !== null) onConfirm(options[highlighted]);
+    select: (option?: ReactElement | string) => {
+      if (onConfirm) {
+        if (option && options.includes(option)) {
+          onConfirm(option);
+        } else if (highlighted !== null) {
+          onConfirm(options[highlighted]);
+        }
+      }
+
       setHighlighted(null);
     },
   };

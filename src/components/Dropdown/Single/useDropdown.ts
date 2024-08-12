@@ -1,5 +1,6 @@
-import { KeyboardEvent, ReactElement, RefObject, useState } from "react";
+import { ReactElement, RefObject, useEffect, useState } from "react";
 import { useControls, useOpen } from "../Base";
+import { useEvents } from "../Base/useEvents";
 
 export const useDropdown = (
   ref: RefObject<HTMLDivElement>,
@@ -13,39 +14,11 @@ export const useDropdown = (
     setSelected(option);
   });
 
-  const handleClickItem = (option: ReactElement | string) => {
-    setSelected(option);
-    setOpen(false);
-    controls.reset();
-  };
+  const [handleClickItem, handleKeyDown] = useEvents(controls, open, setOpen);
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (!open) {
-      switch (e.key) {
-        case "Enter":
-        case " ":
-          setOpen(true);
-          break;
-      }
-    } else {
-      switch (e.key) {
-        case "ArrowUp":
-          controls.moveUp();
-          break;
-        case "ArrowDown":
-          controls.moveDown();
-          break;
-        case "Enter":
-        case " ":
-          controls.select();
-          setOpen(false);
-          break;
-        case "Escape":
-          setOpen(false);
-          break;
-      }
-    }
-  };
+  useEffect(() => {
+    if (setOpen) setOpen(false);
+  }, [selected, setOpen]);
 
   return {
     open,

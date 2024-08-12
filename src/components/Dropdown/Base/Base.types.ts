@@ -4,7 +4,7 @@ export interface Controls {
   moveUp: () => void;
   moveDown: () => void;
   reset: () => void;
-  select: () => void;
+  select: (option?: ReactElement | string) => void;
 }
 
 interface BaseGenericProps<T> {
