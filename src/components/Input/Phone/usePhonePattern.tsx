@@ -38,6 +38,21 @@ const getNumberValue = (value: string) =>
     .filter((char) => !isNaN(+char) && char != " ")
     .join("");
 
+const sliceFormattedValue = (value: string, targetNumberCount: number) => {
+  let counter = 0;
+  for (let i = 0; i < value.length; i++) {
+    if (!isNaN(+value[i]) && value[i] !== " ") {
+      counter++;
+    }
+
+    if (counter == targetNumberCount) {
+      return value.slice(0, i + 1);
+    }
+  }
+
+  return value;
+};
+
 export const usePhonePattern = (country: Country) => {
   const [value, setValue] = useState("");
   const selectionRef = useRef<{ start: number | null; end: number | null }>({
@@ -65,19 +80,8 @@ export const usePhonePattern = (country: Country) => {
 
     // Backspace pressed
     if (!isSelection && isOneSymbolDeleted) {
-      const numLength = value.length - 1;
-
-      let counter = 0;
-      for (let i = 0; i < e.target.value.length; i++) {
-        if (!isNaN(+e.target.value[i]) && e.target.value[i] !== " ") {
-          counter++;
-        }
-
-        if (counter == numLength) {
-          setValue(getNumberValue(e.target.value.slice(0, i + 1)));
-          return;
-        }
-      }
+      const numberCount = value.length - 1;
+      setValue(getNumberValue(sliceFormattedValue(value, numberCount)));
     }
 
     setValue(getNumberValue(e.target.value));
