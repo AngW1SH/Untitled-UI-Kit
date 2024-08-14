@@ -9,6 +9,7 @@ const Base = <T extends string | ReactElement>({
   value,
   options,
   type = "input",
+  onChange,
   className,
 }: BaseProps<T>) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ const Base = <T extends string | ReactElement>({
     highlighted,
     handleClickItem,
     handleKeyDown,
-  } = useDropdown(ref, options, value);
+  } = useDropdown(ref, options, value, onChange);
 
   return (
     <div ref={ref} onKeyDown={handleKeyDown} className={className}>

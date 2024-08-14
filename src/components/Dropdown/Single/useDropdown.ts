@@ -5,7 +5,8 @@ import { useEvents } from "../Base/useEvents";
 export const useDropdown = <T extends string | ReactElement>(
   ref: RefObject<HTMLDivElement>,
   options: T[],
-  value?: T | null
+  value?: T | null,
+  onChange?: (value: T) => void
 ) => {
   const [open, setOpen] = useOpen(ref);
   const [selected, setSelected] = useState(value || null);
@@ -19,6 +20,10 @@ export const useDropdown = <T extends string | ReactElement>(
   useEffect(() => {
     if (setOpen) setOpen(false);
   }, [selected, setOpen]);
+
+  useEffect(() => {
+    if (onChange && selected) onChange(selected);
+  }, [selected, onChange]);
 
   return {
     open,
