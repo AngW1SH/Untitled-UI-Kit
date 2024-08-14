@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Base } from "../Base";
 import CountrySelect from "./CountrySelect";
-import { usePhonePattern } from "./usePhonePattern";
+import { usePhonePattern } from "./PhonePattern/usePhonePattern";
 
 interface PhoneProps {}
 
