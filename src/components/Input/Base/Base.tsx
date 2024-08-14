@@ -27,6 +27,7 @@ export type BaseProps = InputProps &
 const Base: FC<BaseProps> = ({
   value,
   onChange,
+  onSelect,
   label,
   role,
   readOnly,
@@ -59,6 +60,7 @@ const Base: FC<BaseProps> = ({
             placeholder={placeholder}
             value={value}
             onChange={onChange}
+            onSelect={onSelect}
             readOnly={readOnly}
             disabled={disabled}
             id={id}
