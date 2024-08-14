@@ -150,5 +150,6 @@ export const ErrorContainer = styled.div`
   display: flex;
   height: 16px;
   width: 16px;
+  margin-right: 14px;
   align-self: center;
 `;

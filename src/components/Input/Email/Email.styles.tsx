@@ -6,4 +6,5 @@ export const IconWrapper = styled.div`
   align-items: center;
   height: 20px;
   width: 20px;
+  margin-left: 14px;
 `;
