@@ -1,14 +1,12 @@
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useControls = (
-  options: (ReactElement | string)[],
-  onConfirm?: (value: ReactElement | string) => void
+export const useControls = <T>(
+  options: T[],
+  onConfirm?: (value: T) => void
 ) => {
   const [highlighted, setHighlighted] = useState<number | null>(null);
 
-  const [highlightedElement, setHighlightedElement] = useState<
-    ReactElement | string | null
-  >(null);
+  const [highlightedElement, setHighlightedElement] = useState<T | null>(null);
 
   useEffect(() => {
     if (highlighted !== null) {
@@ -41,7 +39,7 @@ export const useControls = (
 
     reset: () => setHighlighted(null),
 
-    select: (option?: ReactElement | string) => {
+    select: (option?: T) => {
       if (onConfirm) {
         if (option && options.includes(option)) {
           onConfirm(option);

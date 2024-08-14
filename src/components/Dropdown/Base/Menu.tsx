@@ -1,22 +1,22 @@
-import { FC, ReactElement } from "react";
+import { ReactElement } from "react";
 import { Menu as MenuStyled } from "./Base.styles";
 import Item from "./Item";
 
-interface MenuProps {
+interface MenuProps<T> {
   id?: string;
-  options: (ReactElement | string)[];
-  highlighted?: ReactElement | string | null;
-  selected?: ReactElement | string | null;
-  onClick: (value: ReactElement | string) => void;
+  options: T[];
+  highlighted?: T | null;
+  selected?: T | null;
+  onClick: (value: T) => void;
 }
 
-const Menu: FC<MenuProps> = ({
+const Menu = <T extends string | ReactElement>({
   options,
   highlighted,
   selected,
   onClick,
   id,
-}) => {
+}: MenuProps<T>) => {
   return (
     <MenuStyled role="listbox" id={id}>
       {options.map((option) => (

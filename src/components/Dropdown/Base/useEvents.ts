@@ -1,12 +1,12 @@
-import { KeyboardEvent, ReactElement } from "react";
+import { KeyboardEvent } from "react";
 import { Controls } from "./Base.types";
 
-export const useEvents = (
-  controls: Controls,
+export const useEvents = <T>(
+  controls: Controls<T>,
   open: boolean,
   setOpen: (open: boolean) => void
 ) => {
-  const handleClickItem = (option: ReactElement | string) => {
+  const handleClickItem = (option: T) => {
     controls.select(option);
     setOpen(false);
   };

@@ -1,10 +1,8 @@
-import { ReactElement } from "react";
-
-export interface Controls {
+export interface Controls<T> {
   moveUp: () => void;
   moveDown: () => void;
   reset: () => void;
-  select: (option?: ReactElement | string) => void;
+  select: (option?: T) => void;
 }
 
 export interface BaseProps<T> {
