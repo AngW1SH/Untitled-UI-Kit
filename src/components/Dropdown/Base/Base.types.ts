@@ -7,14 +7,10 @@ export interface Controls {
   select: (option?: ReactElement | string) => void;
 }
 
-interface BaseGenericProps<T> {
+export interface BaseProps<T> {
   options: T[];
   value?: T | null;
   onChange?: (value: T) => void;
   type?: "input" | "block";
   className?: string;
 }
-
-export type BaseProps =
-  | BaseGenericProps<ReactElement>
-  | BaseGenericProps<string>;

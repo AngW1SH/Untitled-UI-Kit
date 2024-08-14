@@ -1,11 +1,16 @@
 import { ToggleVisibility } from "@common/ToggleVisibility";
-import { FC, useId, useRef } from "react";
+import { ReactElement, useId, useRef } from "react";
 import { useDropdown } from "./useDropdown";
 import Menu from "../Base/Menu";
 import Trigger from "./Trigger";
 import { BaseProps } from "../Base/Base.types";
 
-const Base: FC<BaseProps> = ({ value, options, type = "input", className }) => {
+const Base = <T extends string | ReactElement>({
+  value,
+  options,
+  type = "input",
+  className,
+}: BaseProps<T>) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const menuId = useId();

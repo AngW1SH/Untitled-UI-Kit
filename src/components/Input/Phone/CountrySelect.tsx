@@ -3,10 +3,12 @@ import { CountryDropdown } from "./Phone.styles";
 
 interface CountrySelectProps {}
 
-const CountrySelect: FC<CountrySelectProps> = () => {
-  const [value, setValue] = useState("US");
+type Country = "US" | "CA" | "RU";
 
-  const options = ["US", "CA", "RU"];
+const CountrySelect: FC<CountrySelectProps> = () => {
+  const [value, setValue] = useState<Country>("US");
+
+  const options: Country[] = ["US", "CA", "RU"];
 
   return (
     <CountryDropdown

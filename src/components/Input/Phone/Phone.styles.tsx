@@ -1,7 +1,7 @@
 import { Dropdown, DropdownTriggerBlock } from "@components/Dropdown";
 import styled from "styled-components";
 
-export const CountryDropdown = styled(Dropdown)`
+export const CountryDropdown: typeof Dropdown = styled(Dropdown)`
   height: 100%;
   display: flex;
   align-items: center;
