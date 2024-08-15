@@ -1,4 +1,4 @@
-import { formatValue } from "./useControls";
+import { formatValue, serializeValue } from "./useControls";
 
 describe("formatValue function", () => {
   it("replaces all #-symbols with numbers", () => {
@@ -48,5 +48,21 @@ describe("formatValue function", () => {
 
     const result = formatValue(value, pattern);
     expect(result).toBe("");
+  });
+});
+
+describe("serializeValue function", () => {
+  it("leaves all numbers", () => {
+    const value = "123456789";
+
+    const result = serializeValue(value);
+    expect(result).toBe("123456789");
+  });
+
+  it("removes all non-numeric symbols", () => {
+    const value = "+ (123)-456-789-abc";
+
+    const result = serializeValue(value);
+    expect(result).toBe("123456789");
   });
 });

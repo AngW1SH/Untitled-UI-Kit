@@ -26,7 +26,7 @@ export const formatValue = (value: string, pattern: string) => {
 };
 
 // turn a string into a number-only string
-const serializeValue = (value: string) =>
+export const serializeValue = (value: string) =>
   value
     .split("")
     .filter((char) => !isNaN(+char) && char != " ")
