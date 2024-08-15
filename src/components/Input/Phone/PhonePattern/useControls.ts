@@ -60,9 +60,9 @@ export const useControls = (country: Country) => {
       setSerialized(applyFilters(serialized, serializedInput, settings));
     },
     pop: () => {
-      setSerialized((value) =>
-        applyFilters(serialized, value.slice(0, -1), settings)
-      );
+      setSerialized((value) => {
+        return applyFilters(value, value.slice(0, -1), settings);
+      });
     },
   };
 

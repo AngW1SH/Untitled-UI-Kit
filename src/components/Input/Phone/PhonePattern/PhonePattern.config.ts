@@ -12,6 +12,16 @@ export const addCountryCode = (
   return next;
 };
 
+export const limitLength = (
+  _: string,
+  next: string,
+  country: CountrySettings
+) => {
+  const numberCount = country.pattern.match(/#/g)?.length || 0;
+
+  return next.slice(0, numberCount);
+};
+
 export const countrySettings: Record<Country, CountrySettings> = {
   US: {
     code: "1",
@@ -34,4 +44,4 @@ export const countrySettings: Record<Country, CountrySettings> = {
   },
 };
 
-export const commonFilters: Filter[] = [addCountryCode];
+export const commonFilters: Filter[] = [addCountryCode, limitLength];
