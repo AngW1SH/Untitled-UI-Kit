@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Controls, Country } from "./PhonePattern.types";
+import { Controls, Country, CountrySettings } from "./PhonePattern.types";
 import { commonFilters, countrySettings } from "./PhonePattern.config";
 
 // Turns number-only string into formatted string
@@ -32,6 +32,17 @@ const serializeValue = (value: string) =>
     .filter((char) => !isNaN(+char) && char != " ")
     .join("");
 
+const applyFilters = (
+  prev: string,
+  next: string,
+  settings: CountrySettings
+) => {
+  const countryFilters = settings.filters || [];
+  const filters = [...countryFilters, ...commonFilters];
+
+  return filters.reduce((value, filter) => filter(prev, value, settings), next);
+};
+
 export const useControls = (country: Country) => {
   const [serialized, setSerialized] = useState("");
   const settings = countrySettings[country];
@@ -40,18 +51,12 @@ export const useControls = (country: Country) => {
     set: (input: string) => {
       const serializedInput = serializeValue(input);
 
-      const countryFilters = settings.filters || [];
-      const filters = [...countryFilters, ...commonFilters];
-
-      const newValue = filters.reduce(
-        (value, filter) => filter(serialized, value, settings),
-        serializedInput
-      );
-
-      setSerialized(newValue);
+      setSerialized(applyFilters(serialized, serializedInput, settings));
     },
     pop: () => {
-      setSerialized((value) => value.slice(0, -1));
+      setSerialized((value) =>
+        applyFilters(serialized, value.slice(0, -1), settings)
+      );
     },
   };
 
