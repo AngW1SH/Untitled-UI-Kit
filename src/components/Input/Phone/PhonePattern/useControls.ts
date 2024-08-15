@@ -3,7 +3,7 @@ import { Controls, Country, CountrySettings } from "./PhonePattern.types";
 import { commonFilters, countrySettings } from "./PhonePattern.config";
 
 // Turns number-only string into formatted string
-const formatValue = (value: string, pattern: string) => {
+export const formatValue = (value: string, pattern: string) => {
   if (value.length === 0) return "";
 
   let result = pattern;
