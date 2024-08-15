@@ -32,7 +32,7 @@ export const serializeValue = (value: string) =>
     .filter((char) => !isNaN(+char) && char != " ")
     .join("");
 
-const applyFilters = (
+export const applyFilters = (
   prev: string,
   next: string,
   settings: CountrySettings
