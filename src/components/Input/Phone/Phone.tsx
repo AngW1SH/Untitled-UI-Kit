@@ -6,7 +6,7 @@ import { usePhonePattern } from "./PhonePattern/usePhonePattern";
 interface PhoneProps {}
 
 const Phone: FC<PhoneProps> = () => {
-  const { value, handleChange, handleSelect } = usePhonePattern("US");
+  const { value, handleChange, handleSelect } = usePhonePattern("RU");
 
   return (
     <Base

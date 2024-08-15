@@ -1,7 +1,6 @@
+import { Country } from "./PhonePattern.types";
 import { useControls } from "./useControls";
 import { useEvents } from "./useEvents";
-
-export type Country = "US" | "CA" | "RU";
 
 export const usePhonePattern = (country: Country) => {
   const { value, controls } = useControls(country);

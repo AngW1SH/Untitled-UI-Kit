@@ -1,12 +1,6 @@
 import { useState } from "react";
-import { Country } from "./usePhonePattern";
-import { Controls } from "./PhonePattern.types";
-
-const countryPatterns: Record<Country, string> = {
-  US: "+ (###) ###-####",
-  CA: "(###) ###-####",
-  RU: "(###) ###-####",
-};
+import { Controls, Country } from "./PhonePattern.types";
+import { commonFilters, countrySettings } from "./PhonePattern.config";
 
 // Turns number-only string into formatted string
 const formatValue = (value: string, pattern: string) => {
@@ -40,10 +34,21 @@ const serializeValue = (value: string) =>
 
 export const useControls = (country: Country) => {
   const [serialized, setSerialized] = useState("");
+  const settings = countrySettings[country];
 
   const controls: Controls = {
     set: (input: string) => {
-      setSerialized(serializeValue(input));
+      const serializedInput = serializeValue(input);
+
+      const countryFilters = settings.filters || [];
+      const filters = [...countryFilters, ...commonFilters];
+
+      const newValue = filters.reduce(
+        (value, filter) => filter(serialized, value, settings),
+        serializedInput
+      );
+
+      setSerialized(newValue);
     },
     pop: () => {
       setSerialized((value) => value.slice(0, -1));
@@ -51,7 +56,7 @@ export const useControls = (country: Country) => {
   };
 
   return {
-    value: formatValue(serialized, countryPatterns[country]),
+    value: formatValue(serialized, countrySettings[country].pattern),
     controls,
   };
 };
