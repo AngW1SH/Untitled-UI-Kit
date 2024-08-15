@@ -2,16 +2,14 @@ import { CountrySettings, Country, Filter } from "./PhonePattern.types";
 
 export const addCountryCode = (
   _: string,
-  serialized: string,
+  next: string,
   country: CountrySettings
 ) => {
-  const firstNumberIndex = serialized.indexOf(country.code);
+  if (next === "") return "";
 
-  if (firstNumberIndex === -1) {
-    return country.code + serialized;
-  }
+  if (!next.startsWith(country.code)) return country.code + next;
 
-  return serialized;
+  return next;
 };
 
 export const countrySettings: Record<Country, CountrySettings> = {

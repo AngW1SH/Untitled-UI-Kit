@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Controls, Country, CountrySettings } from "./PhonePattern.types";
 import { commonFilters, countrySettings } from "./PhonePattern.config";
 
@@ -43,9 +43,15 @@ const applyFilters = (
   return filters.reduce((value, filter) => filter(prev, value, settings), next);
 };
 
+const swapCountryCode = (value: string, oldCode: string, newCode: string) => {
+  if (!value.startsWith(oldCode)) return value;
+
+  return newCode + value.slice(oldCode.length);
+};
+
 export const useControls = (country: Country) => {
   const [serialized, setSerialized] = useState("");
-  const settings = countrySettings[country];
+  const [settings, setSettings] = useState(countrySettings[country]);
 
   const controls: Controls = {
     set: (input: string) => {
@@ -59,6 +65,17 @@ export const useControls = (country: Country) => {
       );
     },
   };
+
+  useEffect(() => {
+    const swappedCodeValue = swapCountryCode(
+      serialized,
+      settings.code,
+      countrySettings[country].code
+    );
+
+    setSerialized(applyFilters("", swappedCodeValue, countrySettings[country]));
+    setSettings(countrySettings[country]);
+  }, [country]);
 
   return {
     value: formatValue(serialized, countrySettings[country].pattern),
