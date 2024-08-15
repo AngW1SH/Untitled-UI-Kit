@@ -1,20 +1,20 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { CountryDropdown } from "./Phone.styles";
+import { Country } from "./PhonePattern/PhonePattern.types";
 
-interface CountrySelectProps {}
+interface CountrySelectProps {
+  value: Country;
+  onChange: (value: Country) => void;
+}
 
-type Country = "US" | "CA" | "RU";
-
-const CountrySelect: FC<CountrySelectProps> = () => {
-  const [value, setValue] = useState<Country>("US");
-
-  const options: Country[] = ["US", "CA", "RU"];
+const CountrySelect: FC<CountrySelectProps> = ({ value, onChange }) => {
+  const options: Country[] = ["US", "RU"];
 
   return (
     <CountryDropdown
       type="block"
       value={value}
-      onChange={setValue}
+      onChange={onChange}
       options={options}
     />
   );

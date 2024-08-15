@@ -1,16 +1,18 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Base } from "../Base";
 import CountrySelect from "./CountrySelect";
 import { usePhonePattern } from "./PhonePattern/usePhonePattern";
+import { Country } from "./PhonePattern/PhonePattern.types";
 
 interface PhoneProps {}
 
 const Phone: FC<PhoneProps> = () => {
-  const { value, handleChange, handleSelect } = usePhonePattern("RU");
+  const [country, setCountry] = useState<Country>("US");
+  const { value, handleChange, handleSelect } = usePhonePattern(country);
 
   return (
     <Base
-      innerLeft={<CountrySelect />}
+      innerLeft={<CountrySelect value={country} onChange={setCountry} />}
       value={value}
       onChange={handleChange}
       onSelect={handleSelect}
